@@ -1,6 +1,9 @@
 SCREEN_WIDTH = application:getContentWidth()
 SCREEN_HEIGHT = application:getContentHeight()
 
+local background = Bitmap.new(Texture.new("WAWBackGround.png"))
+stage:addChild(background)
+
 --Table speichert die Zombies.
 zombieList = {}
 
@@ -9,7 +12,7 @@ zombieList = {}
 
 
 --Der timer erzeugt jede sekunde einen zombie und addet ihn zur stage.
-local timer = Timer.new(1000)
+local timer = Timer.new(1900)
 
 
 local function onTimer(event)
@@ -33,7 +36,9 @@ timer:start()
 --onEnterFrame iteriert über die table und zeichnet, bewegt, und löscht die Zombies mit 60 fps.
  function onEnterFrame(event)
 	for key,zombie in ipairs(zombieList) do
-		print(zombie)
+	    
+		
+		
 		zombie:draw()
 		zombie:update()
 		if  not zombie.alive then 

@@ -1,7 +1,10 @@
 <project>
- <properties autorotation="0" encryptAssets="0" fps="60" scaleMode="3" mouseToTouch="1" iosDevice="0" packageName="com.yourdomain.yourapp" logicalHeight="480" logicalWidth="320" mouseTouchOrder="0" encryptCode="0" retinaDisplay="0" touchToMouse="1" assetsOnly="0" orientation="1" architecture="0">
+ <properties autorotation="0" encryptAssets="0" fps="60" scaleMode="5" mouseToTouch="1" iosDevice="0" packageName="com.yourdomain.yourapp" logicalHeight="480" logicalWidth="320" mouseTouchOrder="0" encryptCode="0" retinaDisplay="0" touchToMouse="1" assetsOnly="0" orientation="1" architecture="0">
   <imageScales/>
  </properties>
+ <file source="../Downloads/WAWBackGround.png"/>
+ <file source="../Downloads/field.png"/>
+ <file source="../Downloads/zombie02.png"/>
  <file source="Zombie.lua"/>
  <file source="game.lua"/>
 </project>

@@ -1,11 +1,18 @@
-Zombie = Core.class(Shape)
 
-	
+
+Zombie = Core.class(Shape)
 
 --Init initialisiert die zombie-Werte wie ein Konstruktor.
 function Zombie:init(type, direction)
 
-    self.xdirection 
+	--picture = Bitmap.new(Texture.new("WAWBackGround.png"))
+
+    local function shot(zombie, event)
+		if zombie:hitTestPoint(event.touch.x, event.touch.y) then
+			zombie.alive = false
+		end
+	end
+
 	
 	if direction == "left" then
 		self.xdirection = 1
@@ -29,19 +36,24 @@ function Zombie:init(type, direction)
 	
 	
 	local yPos = 320 - self.height
-	
+	 
 	local xPos = 0
 	
 	if direction == "left" then
 		 xPos  = - self.width
 	elseif direction == "right" then
-		 xPos = 568
+		 xPos = 480
 	end
 	
 	
 	self:setPosition(xPos, yPos)
 	self.alive = true
+
+	self:addEventListener(Event.TOUCHES_END, shot, self)
+
 end
+
+
 
 	
 --Draw zeichnet den Zombie.
@@ -71,16 +83,17 @@ function Zombie:update()
 
     local xspeed = 1.9
 	
+	local oldX = self:getX()
     
-    x = x + (xspeed * xdirection)
+    local newX = oldX + (self.xdirection * xspeed )
 	
-	if x > (SCREEN_WIDTH + self.width) then  
+	if newX > (SCREEN_WIDTH + self.width + 1) then  
 		self.alive = false
 		print("zombie ist tot")
 	end
 	
 
-	self:setX(x)
-    print("x position:", self:getX())
+	self:setX(newX)
+    
 	
 end
