@@ -1,10 +1,20 @@
 <project>
- <properties autorotation="0" encryptAssets="0" fps="60" scaleMode="5" mouseToTouch="1" iosDevice="0" packageName="com.yourdomain.yourapp" logicalHeight="480" logicalWidth="320" mouseTouchOrder="0" encryptCode="0" retinaDisplay="0" touchToMouse="1" assetsOnly="0" orientation="1" architecture="0">
+ <properties autorotation="0" encryptAssets="0" fps="60" scaleMode="1" mouseToTouch="1" iosDevice="0" packageName="com.yourdomain.yourapp" logicalHeight="568" logicalWidth="320" mouseTouchOrder="0" encryptCode="0" retinaDisplay="0" touchToMouse="1" assetsOnly="0" orientation="1" architecture="0">
   <imageScales/>
  </properties>
- <file source="../Downloads/WAWBackGround.png"/>
+ <file source="assets/splatter.png"/>
+ <file source="SplatterEffect.lua"/>
+ <file source="assets/zombie02.png"/>
+ <file source="assets/zombie.png"/>
+ <file source="assets/menu.png"/>
+ <file source="assets/gameOver.png"/>
+ <file source="assets/background.png"/>
+ <file source="GameOverScreen.lua"/>
+ <file source="menu.lua"/>
+ <file source="main.lua"/>
+ <file source="assets/music.mp3"/>
+ <file source="assets/HitHurt.wav"/>
  <file source="../Downloads/field.png"/>
- <file source="../Downloads/zombie02.png"/>
  <file source="Zombie.lua"/>
  <file source="game.lua"/>
 </project>
