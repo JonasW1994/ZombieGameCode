@@ -26,6 +26,14 @@ function Zombie:init(type, direction, speed)
 			local shotSound = Sound.new("gun.wav")
 			shotSound:play()
 			killSound:play()
+			
+			local effect = SplatterEffect.new(event.touch.x, event.touch.y, 70, 50, gameScreen)
+			
+			if zombie.type == "soldier" then
+				effect:setScale(1.0)
+			else
+				effect:setScale(2.0)
+			end
 			if zombie.type == "general" then
 				gameScreen:addScore("general")
 			end
@@ -71,7 +79,6 @@ function Zombie:init(type, direction, speed)
 
 end
 
-
 --Update bewegt den Zombie.
 function Zombie:update()
 
@@ -83,11 +90,17 @@ function Zombie:update()
 		
 		local newX = oldX + (self.xdirection * xspeed )
 		
-		if newX > (SCREEN_WIDTH + 1) then  
+		if newX > (SCREEN_WIDTH + self.width + 1) then  
 			self.alive = false
+			print("zombie ist tot")
 			gameScreen:addScore("fail")
 			gameScreen.failCounter = gameScreen.failCounter + 1
 		end
+		
+		
+		
 
 		self:setX(newX)
+    
+	
 end

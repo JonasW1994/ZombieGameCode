@@ -187,7 +187,6 @@ end
 	for key,zombie in ipairs(self.zombieList) do
 		zombie:update()
 		if  not zombie.alive then 
-			SplatterEffect.new(zombie:getX() + zombie.width * 0.5, zombie:getY() + zombie.height * 0.5, 40, 25, stage)
 			table.remove(self.zombieList, key)
 			self:removeChild(zombie)
 
