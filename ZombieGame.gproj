@@ -1,5 +1,5 @@
 <project>
- <properties autorotation="0" encryptAssets="0" fps="60" scaleMode="1" mouseToTouch="1" iosDevice="0" packageName="com.yourdomain.yourapp" logicalHeight="568" logicalWidth="320" mouseTouchOrder="0" encryptCode="0" retinaDisplay="0" touchToMouse="1" assetsOnly="0" orientation="1" architecture="0">
+ <properties autorotation="0" encryptAssets="0" fps="60" scaleMode="6" mouseToTouch="1" iosDevice="0" packageName="com.yourdomain.yourapp" logicalHeight="568" logicalWidth="320" mouseTouchOrder="0" encryptCode="0" retinaDisplay="0" touchToMouse="1" assetsOnly="0" orientation="1" architecture="0">
   <imageScales/>
  </properties>
  <file source="assets/gun.wav"/>
@@ -17,7 +17,6 @@
  <file source="main.lua"/>
  <file source="assets/music.mp3"/>
  <file source="assets/HitHurt.wav"/>
- <file source="../Downloads/field.png"/>
  <file source="Zombie.lua"/>
  <file source="game.lua"/>
 </project>

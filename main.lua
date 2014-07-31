@@ -1,9 +1,6 @@
 SCREEN_WIDTH = application:getContentWidth()
 SCREEN_HEIGHT = application:getContentHeight()
 
-SCREEN_WIDTH_LOGICAL = application:getLogicalWidth()
-SCREEN_HEIGHT_LOGICAL = application:getLogicalHeight()
-
  local currentScreen = nil
 
 function changeToScreen(screen)

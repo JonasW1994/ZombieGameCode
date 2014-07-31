@@ -53,14 +53,14 @@ function Zombie:init(type, direction, speed)
 	
 	
 	
-	local yPos = SCREEN_WIDTH_LOGICAL - self.height
+	local yPos = SCREEN_HEIGHT - self.height
 	 
 	local xPos = 0
 	
 	if direction == "left" then
 		 xPos  = - self.width
 	elseif direction == "right" then
-		 xPos = SCREEN_HEIGHT_LOGICAL
+		 xPos = SCREEN_WIDTH
 	end
 	
 	
@@ -71,33 +71,6 @@ function Zombie:init(type, direction, speed)
 
 end
 
-
-
-	
---Draw zeichnet den Zombie.
-function Zombie:draw()
-	
-	
-	--self:clear()
-	--self:beginPath()
-
-	--self:setFillStyle(Shape.SOLID, 0xff0000)
-	--self:setLineStyle(1, 0x000000)
-
-	--self:moveTo(0,0)
-	--self:lineTo(0,self.height)
-	--self:lineTo(self.width,self.height)
-	--self:lineTo(self.width,0)
-	--self:lineTo(0,0)
-	
-	--self:endPath()
-	
-	
-	
-	
-	
-	
-end
 
 --Update bewegt den Zombie.
 function Zombie:update()
@@ -110,17 +83,11 @@ function Zombie:update()
 		
 		local newX = oldX + (self.xdirection * xspeed )
 		
-		if newX > (SCREEN_WIDTH + self.width + 1) then  
+		if newX > (SCREEN_WIDTH + 1) then  
 			self.alive = false
-			print("zombie ist tot")
 			gameScreen:addScore("fail")
 			gameScreen.failCounter = gameScreen.failCounter + 1
 		end
-		
-		
-		
 
 		self:setX(newX)
-    
-	
 end

@@ -10,8 +10,7 @@ function getDistance(aX, aY, bX, bY)
 end
 
 function SplatterEffect:init(x, y, radius, splashCount, parent)
-	print(x, y)
-	print("initializing")
+	print("Splatter: " .. x .. " " .. y)
 	self.bloodSplashs = {}
 	
 	self:setPosition(x, y)
@@ -20,9 +19,9 @@ function SplatterEffect:init(x, y, radius, splashCount, parent)
 	
 	for i = 0, splashCount, 1 do
 		local bloodSplash = Bitmap.new(self.bloodSplashTex)
-		local posX = math.random(self:getX() - radius, self:getX() + radius)
-		local posY = math.random(self:getY() - radius, self:getY() + radius)
-		local distance = getDistance(self:getX(), self:getY(), posX, posY)
+		local posX = math.random(-radius, radius)
+		local posY = math.random(-radius, radius)
+		local distance = getDistance(0, 0, posX, posY)
 		local scale = 3.0 / (distance * 0.1)
 		scale = math.min(scale, 1.5)
 		bloodSplash:setPosition(posX, posY)
@@ -36,15 +35,12 @@ function SplatterEffect:init(x, y, radius, splashCount, parent)
 	self.lifeTimer:addEventListener(Event.TIMER, self.remove, self)
 	self.lifeTimer:start()
 	
-	parent:addChild(self)
-	print("added")
-	
+	parent:addChild(self)	
 	
 
 end
 
 function SplatterEffect:remove()
-	print("removed")
 	for i, splash in ipairs(self.bloodSplashs) do
 		self:removeChild(splash)
 	end

@@ -9,7 +9,7 @@ function Game:init(speed)
 	self.failCounter = 0
 	
 	self.paused = false
-	
+		
 		--Erzeugt Hintergrundmusik
 	self.music = Sound.new("music.mp3")
 	self.music:play(0, true)
@@ -72,6 +72,11 @@ function Game:init(speed)
 
 	
 	self:addEventListener(Event.ENTER_FRAME, self.update, self)
+	
+	local zombie = Zombie.new("soldier", "left", self.speed)
+	self:addChild(zombie)
+	table.insert(self.zombieList, zombie)
+
 
 end
 
@@ -90,7 +95,6 @@ function Game:pause()
 end
 
  function Game:onTimer(event)
-
 	local zombie = Zombie.new("soldier", "left", self.speed)
     table.insert(self.zombieList, zombie)
 	self:addChild(zombie)
@@ -104,20 +108,18 @@ end
 
 
 function Game:readHighScore()
-
-	
-	
-		
 	local scoreFile = io.open("|D|score.txt", "r")
+	
 	if not scoreFile then
 		scoreFile = io.open("|D|score.txt", "w")
 		scoreFile:write("0")
+		scoreFile:close()
+		return 0
 	end	
-	local currentHighScore = scoreFile:read("*all")             --> read whole file
-	scoreFile:close()
 	
-	print(currentHighScore)
-	
+	local currentHighScore = scoreFile:read("*all")
+	scoreFile:close()	
+		
 	if  currentHighScore == "" then
 		scoreFile = io.open("|D|score.txt", "w")
 		scoreFile:write("0")
@@ -141,13 +143,12 @@ end
 
 
 function Game:checkHighScore()
- local currentHighScore = self:readHighScore() 
- if self.score >= currentHighScore then
-	self:setScoreAsHighScore()
-	gameOver.showScore = true
- end
-	
-
+	 local currentHighScore = self:readHighScore()
+	 
+	 if self.score >= currentHighScore then
+		self:setScoreAsHighScore()
+		gameOver.showScore = true
+	 end
 end
 
 
@@ -184,13 +185,11 @@ end
 	end
 	
 	for key,zombie in ipairs(self.zombieList) do
-		zombie:draw()
 		zombie:update()
 		if  not zombie.alive then 
-			SplatterEffect.new(zombie:getX(), zombie:getY(),80, 50, self)
-			table.remove(self.zombieList ,key)
+			SplatterEffect.new(zombie:getX() + zombie.width * 0.5, zombie:getY() + zombie.height * 0.5, 40, 25, stage)
+			table.remove(self.zombieList, key)
 			self:removeChild(zombie)
-			print("Zombie wurde gelöscht")
 
 		end
 	end
