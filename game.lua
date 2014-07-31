@@ -1,8 +1,8 @@
 Game = Core.class(Sprite)
 
-function Game:init()
+function Game:init(speed)
 
-	self.speed = 0
+	self.speed = speed
 
 	self.running = true
 
@@ -94,7 +94,7 @@ end
 	local zombie = Zombie.new("soldier", "left", self.speed)
     table.insert(self.zombieList, zombie)
 	self:addChild(zombie)
-    zombie = Zombie.new("general", "right")
+    zombie = Zombie.new("general", "right", self.speed)
 	table.insert(self.zombieList, zombie)
 	self:addChild(zombie)
 	

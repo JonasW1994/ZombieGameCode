@@ -22,7 +22,9 @@ function Zombie:init(type, direction, speed)
 		if zombie:hitTestPoint(event.touch.x, event.touch.y) then
 			
 			zombie.alive = false
-			local killSound = Sound.new("HitHurt.wav")
+			local killSound = Sound.new("shot.wav")
+			local shotSound = Sound.new("gun.wav")
+			shotSound:play()
 			killSound:play()
 			if zombie.type == "general" then
 				gameScreen:addScore("general")
@@ -102,7 +104,7 @@ function Zombie:update()
 
 	
 	
-		local xspeed = 1.9
+		local xspeed = self.speed
 		
 		local oldX = self:getX()
 		

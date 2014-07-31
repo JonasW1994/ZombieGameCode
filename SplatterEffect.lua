@@ -31,7 +31,7 @@ function SplatterEffect:init(x, y, radius, splashCount, parent)
 		table.insert(self.bloodSplashs, bloodSplash)
 	end
 	
-	self.lifeTimer = Timer.new(2000, 1)
+	self.lifeTimer = Timer.new(650, 1)
 	
 	self.lifeTimer:addEventListener(Event.TIMER, self.remove, self)
 	self.lifeTimer:start()
